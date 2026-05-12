@@ -16,7 +16,25 @@ struct Variable : ASTNode {
 };
 
 struct BinaryOp : ASTNode {
+    string op;
     ASTNode* left;
     ASTNode* right;
-    BinaryOp(ASTNode* l, ASTNode* r) : left(l), right(r) {}
+    BinaryOp(string o, ASTNode* l, ASTNode* r) : op(o), left(l), right(r) {}
+};
+
+struct Assignment : ASTNode {
+    string name;
+    ASTNode* expr;
+
+    Assignment(string n, ASTNode* e) : name(n), expr(e) {}
+};
+
+struct Print : ASTNode {
+    ASTNode* expr;
+
+    Print(ASTNode* e) : expr(e) {}
+};
+
+struct Program : ASTNode {
+    std::vector<ASTNode*> statements;
 };
