@@ -25,16 +25,14 @@ struct BinaryOp : ASTNode {
 struct Assignment : ASTNode {
     string name;
     ASTNode* expr;
-
     Assignment(string n, ASTNode* e) : name(n), expr(e) {}
 };
 
 struct Print : ASTNode {
     ASTNode* expr;
-
     Print(ASTNode* e) : expr(e) {}
 };
 
 struct Program : ASTNode {
-    std::vector<ASTNode*> statements;
+    vector<ASTNode*> statements;
 };
