@@ -3,5 +3,4 @@
 #include "ast.h"     // parser creates AST so it needs this file
 using namespace std;
 
-ASTNode* parse(vector<Token>& tokens);
-
+Program* parse(vector<Token>& tokens);
