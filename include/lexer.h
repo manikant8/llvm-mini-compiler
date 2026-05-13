@@ -1,14 +1,19 @@
+#pragma once
 #include <string>
 #include<vector>
+
 using namespace std;
 
 
 enum TokenType{
-    KEYWORD,
-    IDENTIFIER,
-    OPERATOR,
-    INTEGER,
-    PUNCTUATION
+    LET,
+    PRINT,
+    IDENT,
+    NUMBER,
+    PLUS,
+    ASSIGN,
+    SEMICOLON,
+    END
 };
 
 struct Token {
