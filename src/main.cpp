@@ -4,7 +4,9 @@
 using namespace std;
 
 int main(){
-    string code = "let x = 5+6; print x;";
+    string code = "let x = 5+6; y =8+9; print x;";
+
+    // *************************** Lexical Analyser *******************************//
     vector<Token> tokens = tokenize(code);
 
     // To display tokens
@@ -12,6 +14,7 @@ int main(){
     //     cout<<t.type<<" "<<t.value<<endl;
     // }
 
+    // *************************** Syntax Analyser *******************************//
     Program* program = parse(tokens);
-    cout << "Parsing Successful\n";
+    cout << "Parsing is Successful\n";
 }
