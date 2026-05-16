@@ -60,7 +60,7 @@ ASTNode* parseExpr(){
 //     return new Assignment(name, expr);
 // }
 
-// ---------------- ASSIGNMENT (parse x with declaration) ----------------
+// ---------------- ASSIGNMENT (parse x without declaration, x = 5+6) ----------------
 ASTNode* parseAssignment(){
     // expect(LET);
     string name = current().value;
@@ -71,7 +71,7 @@ ASTNode* parseAssignment(){
     return new Assignment(name, expr);
 }
 
-// will parse x = 5+6, without declaring x (parse x without declaration)
+// will parse Let x = 5+6 (parse x with declaration (let))
 ASTNode* parseDeclaration(){
     expect(LET);
     string name = current().value;
