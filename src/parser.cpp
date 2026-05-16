@@ -50,14 +50,36 @@ ASTNode* parseExpr(){
 }
 
 // ---------------- ASSIGNMENT ----------------
+// ASTNode* parseAssignment(){
+//     expect(LET);
+//     string name = current().value;
+//     expect(IDENT);
+//     expect(ASSIGN);
+//     ASTNode* expr = parseExpr();
+//     expect(SEMICOLON);
+//     return new Assignment(name, expr);
+// }
+
+// ---------------- ASSIGNMENT (parse x with declaration) ----------------
 ASTNode* parseAssignment(){
-    expect(LET);
+    // expect(LET);
     string name = current().value;
     expect(IDENT);
     expect(ASSIGN);
     ASTNode* expr = parseExpr();
     expect(SEMICOLON);
     return new Assignment(name, expr);
+}
+
+// will parse x = 5+6, without declaring x (parse x without declaration)
+ASTNode* parseDeclaration(){
+    expect(LET);
+    string name = current().value;
+    expect(IDENT);
+    expect(ASSIGN);
+    ASTNode* expr = parseExpr();
+    expect(SEMICOLON);
+    return new VarDecl(name, expr);
 }
 
 // ---------------- PRINT ----------------
@@ -70,11 +92,13 @@ ASTNode* parsePrint(){
 
 // ---------------- STATEMENT ----------------
 ASTNode* parseStatement(){
-    if(current().type == LET) return parseAssignment();
+    if(current().type == LET) return parseDeclaration();
+    
+    if(current().type == IDENT) return parseAssignment();
 
     if(current().type == PRINT) return parsePrint();
 
-    cout<< "Unknown statement\n";
+    cout<< "Unknown Statement\n";
     exit(1);
 }
 
