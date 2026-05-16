@@ -22,10 +22,22 @@ struct BinaryOp : ASTNode {
     BinaryOp(string o, ASTNode* l, ASTNode* r) : op(o), left(l), right(r) {}
 };
 
+// struct Assignment : ASTNode {
+//     string name;
+//     ASTNode* expr;
+//     Assignment(string n, ASTNode* e) : name(n), expr(e) {}
+// };
+
 struct Assignment : ASTNode {
     string name;
     ASTNode* expr;
     Assignment(string n, ASTNode* e) : name(n), expr(e) {}
+};
+
+struct VarDecl : ASTNode {
+    string name;
+    ASTNode* expr;
+    VarDecl(string n, ASTNode* e) : name(n), expr(e) {}
 };
 
 struct Print : ASTNode {
