@@ -93,7 +93,7 @@ ASTNode* parsePrint(){
 // ---------------- STATEMENT ----------------
 ASTNode* parseStatement(){
     if(current().type == LET) return parseDeclaration();
-    
+
     if(current().type == IDENT) return parseAssignment();
 
     if(current().type == PRINT) return parsePrint();
