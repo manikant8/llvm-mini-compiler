@@ -5,7 +5,7 @@ using namespace std;
 // lexeme_ID : Identifier type lexeme
 // lexeme_NUM: Number type lexeme
 
-// "  let x = 5 + 6; print x;"
+// "  let x = 5 + 6; y = 8 + 9; print x;"
 vector<Token> tokenize(const string& input){
     vector<Token> tokens;
     for(int i = 0; i < input.size(); ){
